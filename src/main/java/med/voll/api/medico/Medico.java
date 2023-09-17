@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.direccion.Direccion;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")
@@ -34,5 +33,17 @@ public class Medico {
         this.documento = datosRegistroMedico.documento();
         this.especialidad = datosRegistroMedico.especialidad();
         this.direccion = new Direccion(datosRegistroMedico.direccion());
+    }
+
+    public void actualizarDatos(DatosActualizarMedico datosActualizarMedico) {
+        if(datosActualizarMedico.nombre() != null){
+            this.nombre = datosActualizarMedico.nombre();
+        }
+        if(datosActualizarMedico.documento() != null){
+            this.documento = datosActualizarMedico.documento();
+        }
+        if(datosActualizarMedico.direccion() != null){
+            direccion.actualizarDatos(datosActualizarMedico.direccion());
+        }
     }
 }
