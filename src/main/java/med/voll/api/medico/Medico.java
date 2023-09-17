@@ -49,7 +49,7 @@ public class Medico {
         }
     }
 
-    public void excluirMedico(Medico medico) {
-        medico.activo = false;
+    public void excluirMedico() {
+        this.activo = false;
     }
 }
