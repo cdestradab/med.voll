@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)        
     private Long id;
     private String login;
     private String clave;
