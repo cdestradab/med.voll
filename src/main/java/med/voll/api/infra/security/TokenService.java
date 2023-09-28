@@ -36,6 +36,9 @@ public class TokenService {
     }
 
     public String getSubject(String token) {
+        if (token == null) {
+            throw new RuntimeException();
+        }
         DecodedJWT verifier = null;
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
@@ -43,6 +46,8 @@ public class TokenService {
                     .withIssuer("voll med")
                     .build()
                     .verify(token);
+
+            verifier.getSubject();
 
         } catch (JWTVerificationException exception){
             System.out.println(exception.toString());
